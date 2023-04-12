@@ -38,5 +38,5 @@ while True:
     else:
         print('没新的')
 
-    # 每隔5秒请求一次
-    time.sleep(10)
+    # 每隔60秒请求一次
+    time.sleep(60)
