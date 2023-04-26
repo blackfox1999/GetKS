@@ -6,13 +6,16 @@ import os
 # B站API接口
 API_URL = 'https://api.bilibili.com/x/series/archives'
 
-# up主的mid
-MID = '699438'
-SERIES = '210751'
+# up主的id
+MID = ''
+
+# 合集的id
+SERIES = ''
 
 # 上次最新视频的bvid
 last_bvid = ''
 
+# 下载器参数
 program_name = 'BBDown.exe'
 program_args_addon = '--use-aria2c'
 
@@ -28,7 +31,7 @@ while True:
 
     # 如果最新视频的bvid不等于上次最新视频的bvid，说明up主上传了新视频，进行下载
     if latest_bvid != last_bvid:
-        # 下载代码
+        # 下载器执行
         program_args = 'https://www.bilibili.com/video/' + latest_bvid
         command_line = f'{program_name} {program_args} {program_args_addon}'
         os.system(command_line)
@@ -38,5 +41,5 @@ while True:
     else:
         print('没新的')
 
-    # 每隔60秒请求一次
-    time.sleep(60)
+    # 每隔600秒请求一次
+    time.sleep(600)
